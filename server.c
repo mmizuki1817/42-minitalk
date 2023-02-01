@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/01 20:09:45 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:17:58 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(void)
 	sigemptyset(&act.sa_mask);
 	act.sa_handler = handle_signal;
 	act.sa_flags = 0;
-	sigaction(SIGUSR1, &act, NULL); // signal(受け取りたいシグナル、シグナルを受け取った後の処理)
+	sigaction(SIGUSR1, &act, NULL);
 	sigaction(SIGUSR2, &act, NULL);
 	while (1)
 	{
