@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:20:40 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/01 22:47:55 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:55:29 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "libft/libft.h"
+#include "libft/ft_printf/ft_printf.h"
 
 static void	error_print(char *s)
 {

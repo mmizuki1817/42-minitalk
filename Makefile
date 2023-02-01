@@ -6,7 +6,7 @@
 #    By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 19:19:16 by mimatsub          #+#    #+#              #
-#    Updated: 2023/01/31 23:20:41 by mimatsub         ###   ########.fr        #
+#    Updated: 2023/02/01 23:14:34 by mimatsub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,6 @@ LIBFT_SRCS = libft/ft_putnbr_fd.c libft/ft_strlen.c libft/ft_isdigit.c libft/ft_
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 LIBFT_NAME = libft.a
 LIB = $(LIBFT_NAME)
-
-$(LIBFT_NAME):	$(LIBFT_OBJS)
-				ar rc $(LIBFT_NAME) $(LIBFT_OBJS)
 
 SERVER_SRCS = server.c
 SERVER_OBJS = $(SERVER_SRCS:.c=.o)
@@ -38,6 +35,9 @@ $(SERVER_NAME):		$(SERVER_OBJS) $(LIB)
 
 $(CLIENT_NAME):		$(CLIENT_OBJS) $(LIB)
 			    $(CC) $(CFLAGS) $(LIB) $^ -o $@
+
+$(LIBFT_NAME):	$(LIBFT_OBJS)
+				ar rc $(LIBFT_NAME) $(LIBFT_OBJS)
 
 all:	$(NAME)
 
