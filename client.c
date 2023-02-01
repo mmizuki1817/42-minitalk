@@ -63,5 +63,5 @@ int	main(int argc, char **argv)
 	if (pid < 100 || pid > 99998)
 		error_print("invalid pid\n");
 	send_string(pid, argv[2]);
-	return (0);
+	return (EXIT_SUCCESS);
 }
