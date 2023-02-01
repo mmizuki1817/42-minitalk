@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:59:15 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/05/30 21:04:26 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:48:55 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	count_digit(long long n)
 char	*ft_itoa(int n)
 {
 	char		*buffer;
-	int		count;
+	int			count;
 	long long	li;
 
 	li = (long long)n;
