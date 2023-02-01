@@ -51,17 +51,17 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc != 3 || !ft_strlen(argv[2]))
-		error_print("missing command-line argment");
+		error_print("missing command-line argment\n");
 	i = 0;
 	while (argv[1][i] != '\0')
 	{
 		if (ft_isdigit(argv[1][i]) == 0)
-			error_print("invalid pid, put integer");
+			error_print("invalid pid, put integer\n");
 		i++;
 	}
 	pid = (pid_t)atoi(argv[1]);
 	if (pid < 100 || pid > 99998)
-		error_print("invalid pid");
+		error_print("invalid pid\n");
 	send_string(pid, argv[2]);
 	return (0);
 }
