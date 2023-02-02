@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 			error_print("invalid pid, put integer\n");
 		i++;
 	}
-	pid = (pid_t)atoi(argv[1]);
+	pid = (pid_t)ft_atoi(argv[1]);
 	if (pid < 100 || pid > 99998)
 		error_print("invalid pid\n");
 	send_string(pid, argv[2]);
