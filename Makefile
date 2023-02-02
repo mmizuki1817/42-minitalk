@@ -31,10 +31,10 @@ RM = rm -f
 $(NAME):	$(SERVER_NAME) $(CLIENT_NAME) $(LIBFT_NAME)
 
 $(SERVER_NAME):		$(SERVER_OBJS) $(LIB)
-				$(CC) $(CFLAGS) $(LIB) $^ -o $@
+				$(CC) $(CFLAGS) $^ -o $@
 
 $(CLIENT_NAME):		$(CLIENT_OBJS) $(LIB)
-			    $(CC) $(CFLAGS) $(LIB) $^ -o $@
+			    $(CC) $(CFLAGS) $^ -o $@
 
 $(LIBFT_NAME):	$(LIBFT_OBJS)
 				ar rc $(LIBFT_NAME) $(LIBFT_OBJS)
