@@ -33,6 +33,7 @@ static void	send_string(pid_t pid, char *s)
 	{
 		usleep(50);
 		if ((s[j] >> bit & 0x01) == 1)
+				killが失敗した時のエラー処理
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
@@ -60,7 +61,8 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	pid = (pid_t)ft_atoi(argv[1]);
-	if (pid < 100 || pid > 99998)
+	//if (pid < 100 || pid > 99998) ->代わりにkillのところでエラー処理
+	if (pid > 0)
 		error_print("invalid pid\n");
 	send_string(pid, argv[2]);
 	return (EXIT_SUCCESS);
