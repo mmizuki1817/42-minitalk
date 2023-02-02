@@ -15,11 +15,11 @@
 #include <stdlib.h>
 #include "libft/libft.h"
 #include "libft/ft_printf/ft_printf.h"
-
+//signalsafety
 static void	handle_signal(int signal)
 {
 	static int	bit;
-	static int	i;
+	static int	i; // int は予期しない動きをするかもなのでvolatileで最適化しないほうがあんぜんです
 
 	if (signal == SIGUSR1)
 		i |= (0x01 << bit);
@@ -38,7 +38,7 @@ int	main(void)
 	pid_t				pid;
 
 	pid = getpid();
-	ft_putnbr_fd((int)pid, 1);
+	ft_putnbr_fd((int)pid, 1); //printf
 	write(1, "\n", 1);
 	sigemptyset(&act.sa_mask);
 	act.sa_handler = handle_signal;
