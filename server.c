@@ -6,29 +6,31 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/01 20:17:58 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:07:18 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft/libft.h"
 #include "libft/ft_printf/ft_printf.h"
-//signalsafety
+
+typedef struct s_msg{
+	int	i;
+	int	bit;
+}	t_msg;
+
 static void	handle_signal(int signal)
 {
-	static int	bit;
-	static int	i; // int は予期しない動きをするかもなのでvolatileで最適化しないほうがあんぜんです
+	static t_msg	msg;
 
 	if (signal == SIGUSR1)
-		i |= (0x01 << bit);
-	bit++;
-	if (bit == 8)
+		msg.i |= (0x01 << msg.bit);
+	msg.bit++;
+	if (msg.bit == 8)
 	{
-		write(1, &i, 1);
-		bit = 0;
-		i = 0;
+		write(1, &msg.i, 1);
+		msg.bit = 0;
+		msg.i = 0;
 	}
 }
 
@@ -38,8 +40,7 @@ int	main(void)
 	pid_t				pid;
 
 	pid = getpid();
-	ft_putnbr_fd((int)pid, 1); //printf
-	write(1, "\n", 1);
+	ft_printf("%i\n", (int)pid);
 	sigemptyset(&act.sa_mask);
 	act.sa_handler = handle_signal;
 	act.sa_flags = 0;

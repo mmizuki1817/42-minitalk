@@ -6,11 +6,11 @@
 #    By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 19:19:16 by mimatsub          #+#    #+#              #
-#    Updated: 2023/02/01 23:14:34 by mimatsub         ###   ########.fr        #
+#    Updated: 2023/02/03 12:18:39 by mimatsub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_SRCS = libft/ft_putnbr_fd.c libft/ft_strlen.c libft/ft_isdigit.c libft/ft_putchar_fd.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_printf/ft_printf.c libft/ft_printf/ft_printf_utils.c 
+LIBFT_SRCS = libft/ft_atoi.c libft/ft_strlen.c libft/ft_isdigit.c libft/ft_putchar_fd.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_printf/ft_printf.c libft/ft_printf/ft_printf_utils.c 
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 LIBFT_NAME = libft.a
 LIB = $(LIBFT_NAME)

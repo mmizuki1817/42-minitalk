@@ -6,13 +6,11 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:20:40 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/01 22:55:29 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:09:29 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft/libft.h"
 #include "libft/ft_printf/ft_printf.h"
 
@@ -33,10 +31,15 @@ static void	send_string(pid_t pid, char *s)
 	{
 		usleep(50);
 		if ((s[j] >> bit & 0x01) == 1)
-				killが失敗した時のエラー処理
-			kill(pid, SIGUSR1);
+		{
+			if (kill(pid, SIGUSR1) < 0)
+				error_print("kill error\n");
+		}	
 		else
-			kill(pid, SIGUSR2);
+		{
+			if (kill(pid, SIGUSR2) < 0)
+				error_print("kill error\n");
+		}
 		bit++;
 		if (bit == 8)
 		{
@@ -57,12 +60,11 @@ int	main(int argc, char **argv)
 	while (argv[1][i] != '\0')
 	{
 		if (ft_isdigit(argv[1][i]) == 0)
-			error_print("invalid pid, put integer\n");
+			error_print("invalid pid, put posositive integer\n");
 		i++;
 	}
 	pid = (pid_t)ft_atoi(argv[1]);
-	//if (pid < 100 || pid > 99998) ->代わりにkillのところでエラー処理
-	if (pid > 0)
+	if (pid < 1)
 		error_print("invalid pid\n");
 	send_string(pid, argv[2]);
 	return (EXIT_SUCCESS);
